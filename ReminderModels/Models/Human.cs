@@ -2,9 +2,10 @@ using System;
 
 namespace ReminderBot.ReminderModels.Models;
 
-class Human 
+public class Human 
 {
     public long Id { get; set; }
+    public long TgId { get; set; }
 
     public override string ToString() 
     { 

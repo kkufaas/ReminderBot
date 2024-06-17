@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderModels", "ReminderModels\ReminderModels.csproj", "{3E19BF38-AB80-49F2-BB21-18AB9D473866}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderSqlite", "ReminderSqlite\ReminderSqlite.csproj", "{1D70497C-11B0-41C3-A64B-64159E0A9DAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReminderSqliteTests", "ReminderSqliteTests\ReminderSqliteTests.csproj", "{269805A0-F172-4852-8266-F26057D4E5E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{3E19BF38-AB80-49F2-BB21-18AB9D473866}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E19BF38-AB80-49F2-BB21-18AB9D473866}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E19BF38-AB80-49F2-BB21-18AB9D473866}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D70497C-11B0-41C3-A64B-64159E0A9DAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D70497C-11B0-41C3-A64B-64159E0A9DAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D70497C-11B0-41C3-A64B-64159E0A9DAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D70497C-11B0-41C3-A64B-64159E0A9DAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{269805A0-F172-4852-8266-F26057D4E5E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{269805A0-F172-4852-8266-F26057D4E5E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{269805A0-F172-4852-8266-F26057D4E5E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{269805A0-F172-4852-8266-F26057D4E5E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
