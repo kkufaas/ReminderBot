@@ -26,7 +26,6 @@ public class HumanRepository : IHumanRepository
         var reader = command.ExecuteReader();
         reader.Read();
         entity.Id = reader.GetInt64(0);
-        connection.Close();
     }
 
     public Human GetById(long id)
@@ -35,7 +34,7 @@ public class HumanRepository : IHumanRepository
         connection.Open();
         var command = connection.CreateCommand();
         command.CommandText = 
-            @$"SELECT * FROM Human WHERE Id = {id};";
+            $"SELECT * FROM Human WHERE Id = {id};";
         var reader = command.ExecuteReader();
         reader.Read();
         Human entity = new()
@@ -45,5 +44,36 @@ public class HumanRepository : IHumanRepository
         };
         connection.Close();
         return entity;
+    }
+
+    public Human GetByTgId(long tgId)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        connection.Open();
+        var command = connection.CreateCommand();
+        command.CommandText = 
+            $"SELECT * FROM Human WHERE TgId = {tgId};";
+        var reader = command.ExecuteReader();
+        reader.Read();
+        Human entity = new()
+        {
+            Id = reader.GetInt64(0),
+            TgId = reader.GetInt64(1)
+        };
+        connection.Close();
+        return entity;
+    }
+
+    public bool Exists(long tgId)
+    {
+        using var connection = new SqliteConnection(_connectionString);
+        connection.Open();
+        var command = connection.CreateCommand();
+        command.CommandText = 
+            $"SELECT * FROM Human WHERE TgId = {tgId};";
+        var reader = command.ExecuteReader();
+        bool result = reader.Read();
+        connection.Close();
+        return result;
     }
 }

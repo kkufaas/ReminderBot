@@ -1,3 +1,4 @@
+using System.Text;
 using Microsoft.Data.Sqlite;
 
 namespace ReminderBot.ReminderSqlite.Utilites;
@@ -13,22 +14,22 @@ public class DataBaseCreator
         _password = password;
     }
 
-    public void Run()
+    public void Run(bool pooling = true)
     {
-        string connectionString = $"Data Source={_dbName};Foreign Keys=True";
+        string connectionString = $"Data Source={_dbName};Foreign Keys=True;Pooling={pooling};";
         if (_password is not null)
         {
             connectionString += $"Password={_password};";
         }
         using var connection = new SqliteConnection(connectionString);
         connection.Open();
-        var command = connection.CreateCommand();
+        using var command = connection.CreateCommand();
         command.CommandText = 
-            @"CREATE TABLE Human(
+            @"CREATE TABLE IF NOT EXISTS Human(
                 Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
                 TgId INTEGER
             );
-            CREATE TABLE Reminder (
+            CREATE TABLE IF NOT EXISTS Reminder (
                 Id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
                 CreationDateTime TEXT NOT NULL,
                 DateTime TEXT NOT NULL,

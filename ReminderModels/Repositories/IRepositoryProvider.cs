@@ -4,5 +4,6 @@ public interface IRepositoryProvider
 {
     IReminderRepository ReminderRepository { get; }
     IHumanRepository HumanRepository { get; }
+    IHumanDataRepository HumanDataRepository{ get; }
 
 }

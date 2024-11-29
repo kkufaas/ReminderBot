@@ -11,6 +11,12 @@ public class Reminder
     public string Title { get; set; }
     public string? Description { get; set; }
 
+    public Reminder(string title, long userId) 
+    {
+        Title = title;
+        UserId = userId;
+    }
+
     public override string ToString() 
     { 
         return Title; 
