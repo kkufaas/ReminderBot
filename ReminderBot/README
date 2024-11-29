@@ -1,0 +1,54 @@
+Reminder Bot is a Telegram bot designed to help users manage their schedules and reminders with ease. Using an interactive chat-based interface, the bot allows users to add, view, and organize reminders for specific dates and times.
+The bot leverages the Telegram Bot API and utilizes an SQLite database (or any repository implementation) for data storage.
+
+Features
+Add Reminders: Easily schedule reminders by specifying the date, time, title, and description.
+View Reminders: Retrieve a list of reminders for a specific date.
+Interactive Keyboard: Simple navigation using Telegram's reply keyboard for commands like "Add Reminder" and "Get Reminders."
+Error Handling: Provides user-friendly messages for invalid input or incorrect commands.
+Customizable Repository Layer: Supports integration with various databases or storage mechanisms.
+
+Technologies Used
+C#
+Telegram.Bot API library
+Microsoft.Extensions.Configuration.UserSecrets for secure configuration
+SQLite (or any other data repository via the IRepositoryProvider interface)
+Concurrent Collections for managing user states and data
+Dependency Injection (DI) for repository management
+
+Installation
+Clone the Repository:
+git clone https://github.com/your-username/reminder-bot.git
+cd reminder-bot
+
+Configure Secrets:
+Store your Telegram bot token using dotnet user-secrets:
+dotnet user-secrets set "BotToken" "YOUR_TELEGRAM_BOT_TOKEN"
+Setup Database:
+Use the provided repository implementation or configure a custom repository via IRepositoryProvider.
+
+Build and Run:
+dotnet build
+dotnet run
+
+How to Use
+Start a chat with the bot in Telegram and send the /start command.
+Use the interactive keyboard to:
+Add Reminder: Specify the date, time, title, and description for your reminder.
+Get Reminders: Retrieve reminders for a specific date.
+Use Cancel to interrupt any action and return to the main menu.
+
+Command Flow
+/start - Initialize the bot and display available commands.
+Add Reminder:
+Prompt for date and time.
+Prompt for a title.
+Prompt for a description.
+Get Reminders:
+Prompt for a date to retrieve all reminders for that day.
+
+Customization
+Repositories: Replace or extend the provided IRepositoryProvider implementation to connect to other databases or storage backends.
+Bot Logic: Modify the Bot class for additional commands or state transitions.
+Keyboard Layout: Customize reply keyboards for additional or alternative commands.
+
